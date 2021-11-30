@@ -381,8 +381,8 @@ def ftp_getarg(slist, itstart, nses, target0, ctype, ftp, flist) : #reform comma
     if len(ctype) == 0 or itstart[0] == 0 :
         print(" Unknown start-time or unknown data type \n")
         exit()
-    if not re.match(r"(wum|whu|whu_igs|ndt|nts|igs|kasi|code|usno|iers|cddis|peter|gfz|ign|ign_mgex|ign_igs|bkg)",ftp) :
-        print(" Unknown ftp site (wum|whu|whu_igs|ndt|nts|igs|kasi|code|usno|iers|cddis|peter|gfz|ign|ign_mgex|ign_igs|bkg) \n")
+    if not re.match(r"(wum|igs|kasi|code|usno|iers|cddis|peter|gfz|ign|ign_mgex|ign_igs|bkg)",ftp) :
+        print(" Unknown ftp site (wum|igs|kasi|code|usno|iers|cddis|peter|gfz|ign|ign_mgex|ign_igs|bkg) \n")
         exit()
     if ctype.find("rnx",0,3) == -1 :
         slist = ""
@@ -423,11 +423,11 @@ def ftp_getarg(slist, itstart, nses, target0, ctype, ftp, flist) : #reform comma
     
 def ftp_getfiles(year0,doy0,hh0,nses0,target0,slist,ctype,ftpname,ACname,hrate):  ###using wget
     cmd_url0,sfile0=ftp_setsite(ftpname,ctype)
-    if ( ftpname == "wum"  or ftpname == "whu_igs") and (ctype.find("sp3x",0,4) != -1 or ctype.find("clkx",0,4) != -1 ) and (not re.match(r"COD|WUM|GFZ|GRG|IAC|SHA|JAX",ACname)):
+    if ( ftpname == "wum" ) and (ctype.find("sp3x",0,4) != -1 or ctype.find("clkx",0,4) != -1 ) and (not re.match(r"COD|WUM|GFZ|GRG|IAC|SHA|JAX",ACname)):
         print ("Please specify the AC's name!")
         exit()
 
-    if ( ftpname == "wum"  or ftpname == "whu_igs") and (ctype.find("sp3x",0,4) != -1 or ctype.find("clkx",0,4) != -1 or ctype.find("sp3m",0,4) != -1 or ctype.find("clkm",0,4) != -1 ) and re.match(r"COD|WUM|GFZ|GRG|IAC|SHA|JAX",ACname):
+    if ( ftpname == "wum" ) and (ctype.find("sp3x",0,4) != -1 or ctype.find("clkx",0,4) != -1 or ctype.find("sp3m",0,4) != -1 or ctype.find("clkm",0,4) != -1 ) and re.match(r"COD|WUM|GFZ|GRG|IAC|SHA|JAX",ACname):
         sfile0 = re.sub("-ACS-",ACname,sfile0,count=0,flags=0)       
 
     nses = nses0 if (nses0 >= 0 ) else -nses0
