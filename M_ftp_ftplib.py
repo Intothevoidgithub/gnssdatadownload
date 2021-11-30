@@ -365,23 +365,3 @@ def ftp_down(host,username,password,log_file,local_dir,remote_dir,sites,sfile):
     my_ftp.download_files_glob(local_dir, remote_dir,sfile,sites)
     my_ftp.close()
     return 0
-#if __name__ == "__main__":
-#    #my_ftp = MyFTP("10.28.5.21")
-#    #my_ftp.set_pasv(False)
-#    #my_ftp.login("data", "chddata")
-#    my_ftp = MyFTP("10.10.5.10","/home/beidou/Prince_study/test/data/log")
-#    #my_ftp.set_pasv(False)
-#    my_ftp.login("igmasftp_whu", "igmasftp@whugnss")
-#    # 下载单个文件
-#    #my_ftp.download_file("/home/BG_2019_05_22_16_04_54_Camera6-0.mp4", "/BG_2019_05_22_16_04_54_Camera6-0.mp4") #FTP服务器目录   本地目录
-#
-#    # 下载目录
-#    #my_ftp.download_file_tree("/home/beidou/Prince_study/test/data", "/data/aliftp/pub/data/daily/2021/256/21d/")
-#    my_ftp.download_files_glob("/home/beidou/Prince_study/test/data", "/data/aliftp/pub/data/daily/2021/256/21d/","?????????_R_202125600??_01D_30S_MO.crx.gz",["OHI2","OHI3","OUS2"])
-#    # 上传单个文件
-#    # my_ftp.upload_file("G:/ftp_test/Release/XTCLauncher.apk", "/App/AutoUpload/ouyangpeng/I12/Release/XTCLauncher.apk")
-#
-#    # 上传目录
-#    #my_ftp.upload_file_tree("/home/beidou/Prince_study/test_py/FTP", "/rinex3/")
-#
-#    my_ftp.close()
