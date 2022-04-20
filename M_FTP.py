@@ -20,7 +20,7 @@
 #                                code products: erp, clk, eph(orb), ion, DCB, snx
 #                      usno    : ftp://maia.usno.navy.mil
 #                                finals2000 file (poleut file)
-#                      iers    : ftp://ftp.iers.org
+#                      iers    : https://datacenter.iers.org
 #                                finals2000 file (poleut file)
 #                      cddis   : ftps://gdc.cddis.eosdis.nasa.gov # current cannot connect :2021/8/31
 #                                MGEX_obs, MGEX_nav, MGEX_products, igs_products,
@@ -217,7 +217,7 @@ def ftp_setsite(ftp, ctype):
             sdir = r"/ser7/"
         sfile, xfile = ftp_filename(ftp, ctype)
     elif ftp == "iers":
-        ftpsite = r"ftp://ftp.iers.org"
+        ftpsite = r"https://datacenter.iers.org"
         if ctype.find("finals2000A",0,11) != -1:
             sdir = r"/products/eop/rapid/standard/"
         sfile, xfile = ftp_filename(ftp, ctype)
